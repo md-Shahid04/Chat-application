@@ -11,7 +11,6 @@ const api = axios.create({
   },
 });
 
-export default api;
 // Request interceptor to dynamically inject the authorization token
 api.interceptors.request.use(
   (config) => {
@@ -29,4 +28,5 @@ api.interceptors.request.use(
   },
 );
 
+// ONLY ONE EXPORT ALLOWED (At the very bottom)
 export default api;
