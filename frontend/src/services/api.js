@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api";
+// Vite MUST use 'import.meta.env', NOT 'process.env'
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const api = axios.create({
   baseURL: API_URL,
@@ -10,6 +11,7 @@ const api = axios.create({
   },
 });
 
+export default api;
 // Request interceptor to dynamically inject the authorization token
 api.interceptors.request.use(
   (config) => {
